@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Order Caramel Donut</title>
+    <link rel="stylesheet" type="text/css" href="styles2.css">
+  </head>
+
+  <body>
+    <h1>Order caramel Donut</h1>
+    <ul>
+      <li><a href="test.html">Home</a></li>
+      <li><a href="1.html">Refresh</a></li>
+      <li><a href="view-orders.html">View Orders</a></li>
+    </ul>
+
+    <div>
+      <h2>Order Details:</h2>
+      <form method="post" action="order-chocolate-donut.html">
+          <input type="hidden" name="base" value="chocolate">
+
+          <label for="name">Name:</label><br>
+          <input type="text" id="name" name="name" required><br>
+
+          <label for="address">Address:</label><br>
+          <input type="text" id="address" name="address" required><br>
+
+          <label for="phone">Phone Number:</label><br>
+          <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
+          <small>Format: 123-456-7890</small><br>
+
+          <h2>Choose a Quantity:</h2>
+          <input type="number" class="donut-quantity" name="quantity" min="1" max="12" value="1"><br>
+
+          <h2>Choose a Pickup Time:</h2>
+          <input type="datetime-local" class="donut-pickup-time" name="pickup-time"><br>
+
+          <input type="submit" value="Order Now">
+      </form>
+      <img id="donut-image" src="images/donut-caramel.png" width="200px" height="200px">
+    </div>
+  </body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Order Donuts</title>
+    <link rel="stylesheet" type="text/css" href="styles2.css">
+  </head>
+
+  <body>
+    <h1>Order Donuts</h1>
+    <ul>
+      <li><a href="test.html">Home</a></li>
+      <li><a href="1.html">Refresh</a></li>
+      <li><a href="view-orders.html">View Orders</a></li>
+    </ul>
+
+    <div>
+      <h2>Choose a Base:</h2>
+      <form method="post" action="order-donuts.html">
+          <input type="radio" class="donut-base" name="base" value="chocolate" onclick="uncheckCaramel()">Chocolate<br>
+          <input type="radio" class="donut-base" name="base" value="caramel" onclick="uncheckChocolate()">Caramel<br>
+
+          <h2>Choose Your Toppings:</h2>
+          <input type="checkbox" class="donut-top" name="sprinkles" value="sprinkles">Sprinkles<br>
+          <input type="checkbox" class="donut-top" name="chocolate-chips" value="chocolate-chips">Chocolate Chips<br>
+          <input type="checkbox" class="donut-top" name="fruit" value="fruit">Fruit<br>
+
+          <h2>Choose a Quantity:</h2>
+          <input type="number" class="donut-quantity" name="quantity" min="1" max="12" value="1"><br>
+
+          <h2>Choose a Pickup Time:</h2>
+          <input type="datetime-local" class="donut-pickup-time" name="pickup-time"><br>
+
+          <input type="submit" value="Order Now">
+      </form>
+      <img id="donut-image" src="donut-image.png" width="200px" height="200px">
+    </div>
+
+    <script>
+      function uncheckCaramel() {
+        document.getElementsByName("base")[1].checked = false;
+      }
+
+      function uncheckChocolate() {
+        document.getElementsByName("base")[0].checked = false;
+      }
+
+      function updateDonutImage() {
+  const chocolateBase = document.querySelector('input[name="base"][value="chocolate"]').checked;
+  const caramelBase = document.querySelector('input[name="base"][value="caramel"]').checked;
+  const sprinkles = document.querySelector('input[name="sprinkles"]').checked;
+  const chocolateChips = document.querySelector('input[name="chocolate-chips"]').checked;
+  const fruit = document.querySelector('input[name="fruit"]').checked;
+
+  let imageName = 'donut-';
+
+  if (chocolateBase) {
+    imageName += 'chocolate';
+  } else if (caramelBase) {
+    imageName += 'caramel';
+  }
+
+  if (sprinkles) {
+    imageName += '-sprinkles';
+  }
+
+  if (chocolateChips) {
+    imageName += '-chocolate-chips';
+  }
+
+  if (fruit) {
+    imageName += '-fruit';
+  }
+
+  imageName += '.png';
+
+  
+  document.getElementById('donut-image').src = 'C:\\Users\\Chal\\Desktop\\TestaiWebsite\\images' + imageName;
+}
+    </script>
+  </body>
+</html>
